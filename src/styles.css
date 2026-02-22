@@ -1,0 +1,142 @@
+/* .App {
+  font-family: "Google Sans", sans-serif;
+  text-align: center;
+} */
+
+.container {
+  display: grid;
+  grid-template-columns: 45%;
+  gap: 10px;
+  max-width: 550px;
+  margin: 50px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6pt;
+  font-family: "Google Sans", sans-serif;
+  background-color: rgba(255, 213, 0, 0.297);
+  border: 1px solid #4e4d4da4;
+}
+
+/* --- Responsive Layout Rule --- */
+@media (max-width: 600px) {
+  .container {
+    /* Switch to a single column when the screen is narrow */
+    /* grid-template-columns: 40%; */
+    margin: 10px;
+  }
+  .left-pane {
+    /* border-bottom: 1px solid #4e4d4da4; */
+    padding-bottom: 30px;
+  }
+  .right-pane {
+    border-bottom: 1px;
+  }
+  .title {
+    text-align: center;
+    grid-column: 1 / span -1;
+  }
+}
+
+.title {
+  text-align: center;
+  grid-column: 1 / span 2;
+  font-weight: 900;
+  color: rgb(154, 21, 216);
+}
+
+.left-pane {
+  padding: 20px;
+}
+
+.right-pane {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #f9f9f9; */
+  border-radius: 4px;
+  min-height: 200px;
+  border-left: 1px solid #4e4d4da4;
+}
+
+.bmi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bmi-input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.underweight {
+  color: #a204a0;
+}
+.healthy {
+  color: #027c1f;
+}
+.overweight {
+  color: #bc4b04;
+}
+.obese {
+  color: #dc3556;
+}
+
+.submit-button {
+  padding: 10px;
+  background-color: #fc670a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: "Google Sans", sans-serif;
+}
+
+.submit-button:hover {
+  background-color: #c85300;
+}
+.submit-button:active {
+  background-color: #be4803;
+  transform: scale(0.99); /* Slightly shrinks the button for a "press" feel */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.result-display {
+  text-align: center;
+  --current-bmi-color: current;
+}
+
+.bmi-number {
+  font-size: 64px;
+  font-weight: 800;
+  margin: 10px auto;
+  text-shadow: -1px -1px 0 #ffffff7a, 1px -1px 0 #ffffff7a, -1px 1px 0 #ffffff7a,
+    1px 1px 0 #ffffff7a;
+}
+
+.bmi-message {
+  font-size: 20px;
+  /* color: #555; */
+  font-weight: 700;
+}
+
+.placeholder-text {
+  color: #888;
+  font-style: italic;
+}
+
+.google-sans-uniquifier {
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "GRAD" 0;
+}
