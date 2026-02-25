@@ -22,6 +22,30 @@ const BMICalculator = () => {
   const [message, setMessage] = useState("");
   const [category, setCategory] = useState("");
 
+  const [weightError, setWeightError] = useState(false);
+  const [heightError, setHeightError] = useState(false);
+
+  const inputValidation = (value) => {
+    // Allow only numbers and a single decimal point
+    if (value === "") {
+      return true;
+    }
+    return /^\d*\.?\d*$/.test(value) && value !== ".";
+    //test for empty string or valid number with optional decimal point
+  };
+
+  const handleWeightChange = (e) => {
+    const val = e.target.value;
+    setWeight(val);
+    setWeightError(!inputValidation(val));
+  };
+
+  const handleHeightChange = (e) => {
+    const val = e.target.value;
+    setHeight(val);
+    setHeightError(!inputValidation(val));
+  };
+  
   const calculateBMI = (e) => {
     e.preventDefault();
 
@@ -49,6 +73,9 @@ const BMICalculator = () => {
     }
   };
 
+
+  
+
   return (
     <div className="container">
       <h1 className="title">BMI Calculator</h1>
@@ -59,22 +86,26 @@ const BMICalculator = () => {
           <div className="input-group">
             <label>Input weight (kg):</label>
             <input
-              type="number"
-              step="0.01"
+              type="text"
+              //step="0.01"
               value={weight}
-              onChange={(e) => setWeight(e.target.value)}
+              onChange={handleWeightChange}
               className="bmi-input"
+              placeholder="eg. 70"
             />
+            {weightError && <span className="error-message">Invalid input</span>}
           </div>
           <div className="input-group">
             <label>Input height (m):</label>
             <input
-              type="number"
-              step="0.01"
+              type="text"
+              //step="0.01"
               value={height}
-              onChange={(e) => setHeight(e.target.value)}
+              onChange={handleHeightChange}
               className="bmi-input"
+              placeholder="eg. 1.7"
             />
+            {heightError && <span className="error-message">Invalid input</span>}
           </div>
           <button type="submit" className="submit-button">
             Submit
